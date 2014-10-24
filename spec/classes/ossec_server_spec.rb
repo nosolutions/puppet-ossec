@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'ossec::server' do
-  let(:node) { 'foo.example.com' } 
+  let(:node) { 'foo.example.com' }
   let :facts do
     {
       :osfamily       => 'RedHat',
@@ -60,7 +60,7 @@ describe 'ossec::server' do
   it do
     content = catalogue.resource('file', '/var/ossec/etc/ossec-server.conf').send(:parameters)[:content]
     content_stripped = content.split("\n").reject { |c| c =~ /(^<!--|^\s+<!--|^$)/ }
-    
+
     expected_lines = [
       '    <email_notification>yes</email_notification>',
       '    <email_to>root@example.com</email_to>',
