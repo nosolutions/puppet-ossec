@@ -72,7 +72,7 @@ describe 'ossec::server' do
   end
 
   it do
-    skip("no way to test exported resources")
+    pending("no way to test exported resources")
     should contain_concat__fragment('ossec-agent.conf-client').with({
       :target   => '/var/ossec/etc/ossec-agent.conf',
       :order    => '01',
