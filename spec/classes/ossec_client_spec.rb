@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'ossec::client' do
-  let(:node) { 'bar.example.com' } 
+  let(:node) { 'bar.example.com' }
   let :facts do
     {
       :concat_basedir => '/dne',
@@ -18,7 +18,7 @@ describe 'ossec::client' do
   it { should contain_class('ossec') }
 
   it do
-    skip("no way to test collected resources")
+    pending("no way to test collected resources")
     should contain_firewall('100 allow OSSEC server').with({
       :ensure   => 'present',
       :action   => 'accept',
@@ -49,7 +49,7 @@ describe 'ossec::client' do
   end
 
   it do
-    skip("No way to test exported resources")
+    pending("No way to test exported resources")
     should contain_ossec__clientkey('ossec_key_foo.example.com_server').with({
       :client_id    => '80864820',
       :client_name  => 'foo.example.com',
@@ -96,7 +96,7 @@ describe 'ossec::client' do
   end
 
   it do
-    skip("no way to test collected resources")
+    pending("no way to test collected resources")
     should contain_concat__fragment('ossec-agent.conf-client').with({
       :target   => '/var/ossec/etc/ossec-agent.conf',
       :order    => '01',
@@ -121,10 +121,10 @@ describe 'ossec::client' do
   end
 
   it do
-    skip("no way to test collected resources")
+    pending("no way to test collected resources")
     content = catalogue.resource('file', '/var/ossec/etc/ossec-agent.conf').send(:parameters)[:content]
     content_stripped = content.split("\n").reject { |c| c =~ /(^<!--|^\s+<!--|^$)/ }
-  
+
     expected_lines = [
       '<ossec_config>',
       '  <client>',
