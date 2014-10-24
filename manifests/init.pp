@@ -1,17 +1,12 @@
 # == Class: ossec
 #
 class ossec (
+  $enable_atomic = 'true',
+  ) inherits ossec::params {
 
-) inherits ossec::params {
+  validate_bool($enable_atomic)
 
-  case $::osfamily {
-    'RedHat': {
+  if $::osfamily == 'RedHat' and $enable_atomic == 'true' {
       include atomic
-    }
-
-    default: {
-      # Do nothing
-    }
   }
-
 }
