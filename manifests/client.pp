@@ -6,6 +6,7 @@ class ossec::client (
   $firewall_ensure    = 'present',
   $manage_firewall    = true,
   $package_name       = $ossec::params::client_package_name,
+  $package_source     = $ossec::params::package_source,
   $service_ensure     = 'running',
   $service_enable     = true,
   $service_name       = $ossec::params::client_service_name,
