@@ -57,7 +57,7 @@ class ossec::client (
 
   if $::osfamily == 'AIX' {
     Package['ossec-hids-client'] {
-      source   => "$package_source/${package_name}-${package_version}.ppc.rpm",
+      source   => "${package_source}/${package_name}-${package_version}.ppc.rpm",
       provider => 'rpm',
     }
   }
