@@ -18,7 +18,7 @@ class ossec::params {
       $client_service_hasrestart  = true
     }
     'AIX': {
-      $package_sourcee        = 'http://<your package server here>'
+      $package_source         = 'http://<your package server here>'
       $client_package_version = '2.8.1-47.aix5.3'
       $client_package_name    = 'ossec-hids'
     }
