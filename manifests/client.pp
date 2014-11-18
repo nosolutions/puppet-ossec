@@ -53,6 +53,13 @@ class ossec::client (
     require => $package_require,
   }
 
+  if $::osfamily == 'AIX' {
+    Package['ossec-hids-client'] {
+      source   => "$package_source/$package_name",
+      provider => 'rpm',
+    }
+  }
+
   service { 'ossec-hids':
     ensure      => $service_ensure,
     enable      => $service_enable,
