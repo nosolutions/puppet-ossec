@@ -18,8 +18,9 @@ class ossec::params {
       $client_service_hasrestart  = true
     }
     'AIX': {
-      $package_source      = 'http://<your package server here>'
-      $client_package_name = 'ossec-hids-2.8.1-47.aix5.3.ppc.rpm'
+      $package_sourcee        = 'http://<your package server here>'
+      $client_package_version = '2.8.1-47.aix5.3'
+      $client_package_name    = 'ossec-hids'
     }
     default: {
       fail("Unsupported osfamily: ${::osfamily}, module ${module_name} only supports osfamily RedHat and AIX")

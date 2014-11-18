@@ -6,6 +6,7 @@ class ossec::client (
   $firewall_ensure    = 'present',
   $manage_firewall    = true,
   $package_name       = $ossec::params::client_package_name,
+  $package_version    = $ossec::params::client_package_version,
   $package_source     = $ossec::params::package_source,
   $service_ensure     = 'running',
   $service_enable     = true,
@@ -56,7 +57,7 @@ class ossec::client (
 
   if $::osfamily == 'AIX' {
     Package['ossec-hids-client'] {
-      source   => "$package_source/$package_name",
+      source   => "$package_source/${package_name}-${package-version}.ppc.rpm",
       provider => 'rpm',
     }
   }
